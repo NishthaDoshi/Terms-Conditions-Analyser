@@ -20,8 +20,7 @@ WORKDIR /app
 # Copy the packaged jar from the build stage
 COPY --from=build /app/target/digital-consent-tracker-0.0.1-SNAPSHOT.jar .
 
-COPY --from=build /app/target/classes/static/ /app/BOOT-INF/classes/static/
-
+COPY --from=build /app/target/classes/static/dist/ /app/BOOT-INF/classes/static/
 # Expose the application port
 EXPOSE 8080
 
