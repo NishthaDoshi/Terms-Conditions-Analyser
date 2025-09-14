@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function riskToColor(score) {
   if (score >= 0.7) return "rgba(255,0,0,0.15)";
   if (score >= 0.5) return "rgba(255,165,0,0.12)";
@@ -40,7 +42,9 @@ export default function App() {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("/api/documents/stats");
+      // const res = await fetch("/api/documents/stats");
+      const res = await fetch(`${API_BASE_URL}/api/documents/stats`);
+
       if (res.ok) {
         const data = await res.json();
         setStats(data);
@@ -74,7 +78,8 @@ export default function App() {
       const form = new FormData();
       form.append("file", file);
       
-      const res = await fetch("/api/documents/upload", { 
+      // const res = await fetch("/api/documents/upload", { 
+        const res = await fetch(`${API_BASE_URL}/api/documents/upload`, {
         method: "POST", 
         body: form 
       });
@@ -122,7 +127,7 @@ export default function App() {
     setStatus("Analyzing pasted text...");
     
     try {
-      const res = await fetch("/api/documents/paste", {
+      const res = await fetch(`${API_BASE_URL}/api/documents/paste`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: pastedText })
@@ -156,7 +161,8 @@ export default function App() {
 
   const fetchClauses = async (id) => {
     try {
-      const res = await fetch(`/api/documents/${id}/clauses`);
+      // const res = await fetch(`/api/documents/${id}/clauses`);
+      const res = await fetch(`${API_BASE_URL}/api/documents/${id}/clauses`);
       if (res.ok) {
         const list = await res.json();
         setClauses(list);

@@ -13,7 +13,13 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:5173");
+                String frontendUrl = System.getenv("FRONTEND_URL");
+                if (frontendUrl != null) {
+                    registry.addMapping("/**").allowedOrigins(frontendUrl);
+                } else {
+                    // This is for local development only
+                    registry.addMapping("/**").allowedOrigins("http://localhost:5173");
+                }
             }
         };
     }
