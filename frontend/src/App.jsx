@@ -184,7 +184,7 @@ export default function App() {
       backgroundColor: "#fdfdfd"
     }}>
       <header style={{ textAlign: "center", marginBottom: 32 }}>
-        <h1 style={{ color: "#2c3e50", marginBottom: 8 }}>Digital Consent & Privacy Tracker</h1>
+        <h1 style={{ color: "#2c3e50", marginBottom: 8 }}>Termlyzer</h1>
         <p style={{ color: "#7f8c8d", fontSize: 18 }}>
           Analyze Terms & Conditions to identify privacy risks and data usage concerns
         </p>
@@ -306,7 +306,7 @@ export default function App() {
             padding: "8px 16px",
             background: loadingPaste ? "#bdc3c7" : "#27ae60",
             
-            // change added
+            
 
             color: "white",
             border: "none",
@@ -522,7 +522,7 @@ export default function App() {
         borderTop: "1px solid #ecf0f1" 
       }}>
         <p>
-          <strong>Digital Consent & Privacy Tracker</strong> helps you understand terms and conditions.
+          <strong>Termlyzer</strong> helps you understand terms and conditions.
           <br />
           Always consult with legal experts for important decisions.
         </p>
