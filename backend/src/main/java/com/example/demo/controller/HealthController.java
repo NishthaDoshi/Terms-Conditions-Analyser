@@ -61,6 +61,6 @@ public class HealthController {
     
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
-        return ResponseEntity.ok("Digital Consent Tracker Backend is running!");
+        return ResponseEntity.ok("Terms and Conditions Backend is running!");
     }
 }
